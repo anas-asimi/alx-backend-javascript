@@ -6,6 +6,9 @@ export default class Pricing {
     this.currency = currency;
   }
 
+  /**
+   * @returns {Number}
+   */
   get amount() {
     return this._amount;
   }
@@ -24,9 +27,6 @@ export default class Pricing {
     return this._currency;
   }
 
-  /**
-   * @param {Currency} value
-   */
   set currency(value) {
     if (!(value instanceof Currency)) {
       throw new TypeError('currency must be a Currency');
