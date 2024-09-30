@@ -3,11 +3,20 @@ const fs = require('fs');
 function countStudents(path) {
     if (fs.existsSync(path)) {
         const csvData = fs.readFileSync(path, 'utf8');
-        const rows = csvData.trim().split('\n');
+        const rows = csvData
+            .trim()
+            .split('\n')
+            .slice(1)
+            .map(e => e.split(','))
 
-        for (const row of rows) {
-            console.log(row);
+        const fields = new Set(rows.map(e => e[3]))
+        console.log(`Number of students: ${rows.length}`);
+        for (const field of fields) {
+            students = rows.filter(e => e[3] === field)
+            console.log(`Number of students in ${field}: ${students.length}. List: ${students.map(e => e[0]).join(', ')}`);
+
         }
+
 
     } else console.log('Cannot load the database');
 
