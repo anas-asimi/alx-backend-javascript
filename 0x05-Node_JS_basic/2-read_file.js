@@ -14,12 +14,8 @@ function countStudents(path) {
         for (const field of fields) {
             students = rows.filter(e => e[3] === field)
             console.log(`Number of students in ${field}: ${students.length}. List: ${students.map(e => e[0]).join(', ')}`);
-
         }
-
-
     } else console.log('Cannot load the database');
-
 }
 
 module.exports = countStudents
