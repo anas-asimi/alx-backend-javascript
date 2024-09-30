@@ -33,5 +33,6 @@ module.exports = {
       files: ['*.js'],
       excludedFiles: 'babel.config.js'
     }
-  ]
+  ],
+  "indent": ["error", 2]
 };
