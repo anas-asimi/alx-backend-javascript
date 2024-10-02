@@ -9,8 +9,9 @@ const app = http.createServer((req, res) => {
   }
   if (req.url === '/students') {
     fs.readFile(path, 'utf-8', (err, data) => {
+      res.write('This is the list of our students\n');
       if (err) {
-        res.end('Cannot load the database\n');
+        res.end('Cannot load the database');
       } else {
         const rows = data
           .trim()
@@ -18,7 +19,6 @@ const app = http.createServer((req, res) => {
           .slice(1)
           .map((e) => e.split(','));
         const fields = new Set(rows.map((e) => e[3]));
-        res.write('This is the list of our students\n');
         res.write(`Number of students: ${rows.length}\n`);
         for (const field of fields) {
           const students = rows.filter((e) => e[3] === field);
