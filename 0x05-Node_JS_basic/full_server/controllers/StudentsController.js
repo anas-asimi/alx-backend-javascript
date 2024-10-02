@@ -23,8 +23,7 @@ export default class StudentsController {
       const path = process.argv[2];
       readDatabase(path).then((fields) => {
         const students = fields[major];
-        response.write(`List: ${students.map((e) => e[0]).join(', ')}\n`);
-        response.end();
+        response.status(200).send(`List: ${students.map((e) => e[0]).join(', ')}`);
       }).catch((error) => {
         response.status(500).send(error.message);
       });
