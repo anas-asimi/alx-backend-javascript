@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: ['jest'],
   rules: {
+    "indent": ["error", 2],
     'max-classes-per-file': 'off',
     'no-underscore-dangle': 'off',
     'no-console': 'off',
@@ -34,5 +35,4 @@ module.exports = {
       excludedFiles: 'babel.config.js'
     }
   ],
-  "indent": ["error", 2]
 };
